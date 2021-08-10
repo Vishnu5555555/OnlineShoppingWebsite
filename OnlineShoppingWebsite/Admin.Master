@@ -1,0 +1,113 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="OnlineShoppingWebsite.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+.navbar
+{
+              background-image: url('/Images/bla.jpg');/* fallback for old browsers */
+             background: -webkit-linear-gradient(to right,  #fff1c,  #00c3ff);  /* chrome 10-25, safari 5.1 */
+              background: linear-gradient(to right,  #fffff1c,  #00c3ff);  /*  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.button
+{
+            background: #0052D4;
+/*  fallback for old browsers  */background: -webkit-linear-gradient(to right, #6FB1FC, #4364F7, #0052D4); /* chrome 10-25, Safari 5.1-6 */;
+            background: linear-gradient(to right, #6FB1FC , #436F7, #0052D4);
+            color: #000000;
+            background-color: #660066;
+        }
+.buttonColor
+{
+background-color:Red;
+color:White;
+}
+        .auto-style1 {
+            width: 1206px;
+            background-image: url('/Images/bla.jpg');
+        }
+        .auto-style2 {
+            width: 1206px;
+            background-image: url('/Images/bla.jpg');
+            height: 218px;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+    
+<body style = " background-color:#800000; background-image: url('/Images/ab.jpg');">
+      <form id="form1" runat="server">
+     <div>
+               <table align="center">
+               <%--Admin Banner Image--%>
+               <tr style="width: 1200px; color: purple;  ">
+                     <td class="auto-style2">
+                           <asp:Image Id="Image1" runat="server" Bordercolor="#666666"  BorderWidth="3px"  Height="208px"  Width="1200px"  ImageUrl="~/Images/admin2.jpg"/>
+   </td>
+</tr>
+
+<%--Navigation--%>
+                   <tr style="border-width: 8px;  border-color: purple; width: 1200px; color: #800000;  height:60px; background-color: #6600CC; background-image: url('/Images/water.jpg');" bgcolor="#800000">
+               <td class="auto-style1">   
+               <div class="navbar">
+                       <table align= "center"  cellpadding="10">
+                              <tr style ="border-color:#800000;">
+                                   <%--Navigate to  category page--%>
+                                  <td>
+                                          <asp:Button CssClass="button"  Id="btnCategory" runat="server"
+                                                       Text="Add Category" Height="49px"  Width="171px"  Font-Bold="True" 
+                                                       Font-Size="Medium" CausesValidation="False" BorderColor="purple"
+                                                        onclick="btnCategory_Click"  />
+</td>
+
+
+ <%--Navigate Add_Product page--%>
+<td>
+         <asp:Button CssClass="button" Id="btnAddProduct"  runat="server"
+                 Text="Add Product" Height="49px" Width="171px" Font-Bold="True"  Font-Size="Medium"
+            CausesValidation="False" BorderColor="#666666" onclick="btnAddProduct_Click"  />
+</td>
+  <%--Navigate to Update_Product page--%>
+<td>
+          <asp:Button CssClass="button" ID="btnUpdateProduct"  runat="server"
+                    Text="Update Product" Height="49px"  Width="171px" Font-Bold="True" Font-Size="Medium"
+       CausesValidation="False"  BorderColor="#666666"
+               Onclick="btnUpdateProduct_Click"  />
+</td>
+<%--Navigate to Update_Order_Status Page--%>
+<td>
+         <asp:Button CssClass="button" ID="btnUpdateStatus"  runat="server"
+                Text="Update Status" Height="49px" Width="171px" Font-Bold="True" Font-Size="Medium"
+causesValidation="False" BorderColor="#666666"
+      onclick="btnUpdateStatus_Click"  />
+</td>
+<%--Logout Button redirecsts to Login page--%>
+<td>
+              <asp:Button CssClass="button" ID="btnLogout" runat="server" Text="Logout"
+                        Height="49px" Width="171px" Font-Bold="True"  Font-Size="Medium"
+                CausesValidation="False" BorderColor="#666666" onclick="btnLogout_Click"  />
+            </td>
+         </tr>
+   </table>
+ </div>
+</td>
+</tr>
+
+<%--All content will be shown inside this table row--%>
+ <tr style="border-width: 8px; border-color: purple; width: 1200px;">
+     <td class="auto-style1">
+           <asp:ContentPlaceHolder Id="ContentPlaceHolder1" runat="server">
+ 
+               </asp:ContentPlaceHolder>
+       </td>
+    </tr>
+    </table>
+</div>
+</form>
+</body>
+</html>
