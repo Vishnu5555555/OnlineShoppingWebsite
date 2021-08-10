@@ -1,0 +1,142 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Index.master.cs" Inherits="OnlineShoppingWebsite.Index" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type ="text/css">
+        .all
+        {
+            background-color:green;
+            border-radius: 0% 50% 50% 0% / 0% 50% 50% 0%;
+
+            position: relative;
+            bottom: 20px;
+            left:1px;
+            text-align:left;
+            color: white;
+            float:left;
+        }
+        .auto-style1 {
+            height: 5px;
+        }
+        .auto-style2 {
+            height: 55px;
+        }
+        .auto-style3 {
+            width: 10px;
+            height: 9px;
+        }
+        .auto-style4 {
+            width: 740px;
+            height: 9px;
+            color: #FFFFFF;
+            background-image: url('/Images/bla.jpg');
+        }
+        .auto-style5 {
+            width: 230px;
+            height: 9px;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style =" background-image:url('/Images/bla.jpg')" >
+    <form id="form1" runat="server">
+    <div>
+        <table style=" width:1020px; margin:0 auto; background-color:white; height: 801px;">
+            <%--Header Starts Here--%>
+            <tr style=" width:1100px; border-color:#5f98f3; background-color:peachpuff">
+                <td class="auto-style3">
+                <asp:Image ID="Image1" runat="server" Height="113px"
+                    ImageUrl="~/Images/BrandLogo.jpg" Width="174px" BorderColor="#666666" BorderWidth="2px" /></td>
+                <td align="centre" class="auto-style4">
+                    <asp:Label ID="Label1" runat="server" Text="VDV SHOPPING CENTRE"
+                        Font-Bold="true" Font-Names="Copperplate Gothic Bold"
+                        ForeColor="white" Font-Size="35px"></asp:Label>
+                    <br /><b>For Those Who Love Shopping.........!</b>
+                </td>
+                <td style=" text-align:right" class="auto-style5">
+                    <asp:ImageButton ID="ImageButton1" runat="server" Height="50px" style=" text-align:left" PostBackUrl=""
+                        ImageUrl="~/Images/facebook.png" Width="50px" />
+                    <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" style=" text-align:left" PostBackUrl=""
+                        ImageUrl="~/Images/tweet.png" Width="50px" />
+                    <asp:ImageButton ID="ImageButton3" runat="server" Height="50px" style=" text-align:left" PostBackUrl=""
+                        ImageUrl="~/Images/instag.png" Width="50px" />
+                    <asp:ImageButton ID="ImageButton4" runat="server" Height="50px" style=" text-align:left"
+                        ImageUrl="~/Images/Cart1.png" Width="50px" CausesValidation="False"
+                        onclick="ImageButton4_Click"/>
+                    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="X-Large"
+                             ForeColor="#5F98F3"></asp:Label>
+               </td>
+                </tr>
+                <%--Header Ends Here--%>
+
+            <%--Navigation--%>
+            <tr style=" width:1100px; height:40px; background-color:violet">
+                <td colspan="3" style=" text-align:right; background-color: #800080;">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal"
+                        StaticSubMenuIndent="19px">
+                        <Items>
+                            <asp:MenuItem Text="Home" Value="Home"></asp:MenuItem>
+                            <asp:MenuItem Text="All Products" Value="All Products"
+                                NavigateUrl="~/Default.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Registration" Value="Registration"
+                                NavigateUrl="~/Register.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="User Login" Value="User Login"
+                                NavigateUrl="~/Login.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="About Us" Value="About Us"></asp:MenuItem>
+                             <asp:MenuItem Text="Contact Us" Value="Contact Us"></asp:MenuItem>
+                        </Items>
+                        <StaticHoverStyle BackColor="#FF6666" BorderColor="#FF6666"
+                            BorderStyle="Outset" ForeColor="White" Height="40px" />
+                        <StaticMenuItemStyle Font-Bold="true" Font-Size="Large" ForeColor="Black"
+                            HorizontalPadding="54px" />
+                        <StaticSelectedStyle BackColor="#FF5050" BorderColor="#FF6666"
+                            BorderStyle="Inset" ForeColor="#666666" Height="40px" />
+                    </asp:Menu>
+                </td>
+            </tr>
+            <%--Navigation--%>
+
+
+            <%--Ads Banner--%>
+            <tr style=" width:1110px; height:210px; background-color: #FFDAB9; background-image: url('/Images/bla.jpg');">
+                <td colspan="3">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:Timer ID="Timer1" runat="server" Interval="2000" ontick="Timer1_Tick">
+                            </asp:Timer>
+                            <asp:Image ID="Image2" runat="server" BackColor="White" BorderColor="Gray"
+                                BorderStyle="Double" Height="787px" Width="1140px" ImageAlign="Middle" />
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </td>
+               </tr>
+
+            <%--Ads Banner--%>
+
+            <%--your Content--%>
+            <tr>
+                <td colspan="3" class="auto-style1">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            </td>
+            </tr>
+            <%--Your Content--%>
+
+            <%--footer--%>
+            <tr style=" width:1110px; background-color:black; text-align:center; color:white">
+                <td colspan="3" class="auto-style2">
+                    &copy; Online Shopping Center Pvt. | All rights Reserved, 2021
+                </td>
+            </tr>
+            <%--footer--%>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
